@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="Tool for test dead pixel for touch screen devices">
+    <title>Dead Pixel Test</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      html, body {
+        height: 100%;
+      }
+      .button {
+        width: 50%;
+        height: 100%;
+        float: left;
+      }
+      /*
+      body { background-color: #333; }
+      #left  { background-color: red; }
+      #right { background-color: green; }
+      */
+    </style>
+  </head>
+  <body id='root'>
+    <div class='button' id='left'></div>
+    <div class='button' id='right'></div>
+    <script>
+      var colors = [
+        'red',
+        'lime',
+        'blue',
+        'white',
+        'black',
+        'yellow',
+        'green',
+        'cyan',
+        'purple',
+      ];
+      var count = 0;
+      var max   = colors.length-1;
+      document.getElementById('left').onclick = function(){
+        count -= 1;
+        if(count < 0){ count = max; }
+        document.getElementById('root').style.backgroundColor = colors[count];
+      }
+      document.getElementById('right').onclick = function(){
+        count += 1;
+        if(count > max){ count = 0; }
+        document.getElementById('root').style.backgroundColor = colors[count];
+      }
+    </script>
+  </body>
+</html>
